@@ -1,4 +1,4 @@
-import type { UserV2 } from './user.v2.types';
+import type { UserV2 } from "./user.v2.types";
 
 export interface PlaceV2 {
   full_name: string;
@@ -27,13 +27,13 @@ export type OrganicMetricV2 = PlaybackCountV2 & { view_count: number };
 
 export interface MediaVariantsV2 {
   bit_rate?: number;
-  content_type: 'video/mp4' | 'application/x-mpegURL' | string;
-  url: string
+  content_type: "video/mp4" | "application/x-mpegURL" | string;
+  url: string;
 }
 
 export interface MediaObjectV2 {
   media_key: string;
-  type: 'video' | 'animated_gif' | 'photo' | string;
+  type: "video" | "animated_gif" | "photo" | string;
   duration_ms?: number;
   height?: number;
   width?: number;
@@ -49,14 +49,14 @@ export interface MediaObjectV2 {
 
 export interface PollV2 {
   id: string;
-  options: { position: number; label: string; votes: number; }[];
+  options: { position: number; label: string; votes: number }[];
   duration_minutes?: number;
   end_datetime?: string;
   voting_status?: string;
 }
 
 export interface ReferencedTweetV2 {
-  type: 'retweeted' | 'quoted' | 'replied_to';
+  type: "retweeted" | "quoted" | "replied_to";
   id: string;
 }
 
@@ -139,7 +139,7 @@ export interface TweetEntitiesV2 {
 export interface TweetWithheldInfoV2 {
   copyright: boolean;
   country_codes: string[];
-  scope: 'tweet' | 'user';
+  scope: "tweet" | "user";
 }
 
 export interface TweetPublicMetricsV2 {
@@ -179,9 +179,9 @@ export interface NoteTweetV2 {
   entities?: NoteTweetEntitiesV2;
 }
 
-export type NoteTweetEntitiesV2 = Omit<TweetEntitiesV2, 'annotations'>;
+export type NoteTweetEntitiesV2 = Omit<TweetEntitiesV2, "annotations">;
 
-export type TTweetReplySettingsV2 = 'mentionedUsers' | 'following' | 'everyone';
+export type TTweetReplySettingsV2 = "mentionedUsers" | "following" | "everyone";
 
 export interface TweetArticleV2 {
   cover_media?: MediaObjectV2;
@@ -190,7 +190,7 @@ export interface TweetArticleV2 {
 
 export interface SendTweetV2Params {
   direct_message_deep_link?: string;
-  for_super_followers_only?: 'True' | 'False';
+  for_super_followers_only?: "True" | "False";
   geo?: {
     place_id: string;
   };
@@ -202,6 +202,7 @@ export interface SendTweetV2Params {
       | [string, string, string, string];
     tagged_user_ids?: string[];
   };
+  made_with_ai?: boolean;
   poll?: {
     duration_minutes: number;
     options: string[];
@@ -239,7 +240,7 @@ export interface TweetV2 {
   edit_controls?: EditControlsV2;
   possibly_sensitive?: boolean;
   lang?: string;
-  reply_settings?: 'everyone' | 'mentionedUsers' | 'following';
+  reply_settings?: "everyone" | "mentionedUsers" | "following";
   source?: string;
   note_tweet?: NoteTweetV2;
   community_id?: string;
